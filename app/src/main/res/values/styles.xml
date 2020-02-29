@@ -1,0 +1,59 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_color_dark</item>
+        <item name="colorAccent">@color/accent_color</item>
+    </style>
+
+    <style name="MaterialTheme.NoTitle" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="SplashText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">80sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Body">
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textColor">@color/grey_l1</item>
+    </style>
+
+    <style name="Text.Alert">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="MatchParentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchParentLayout.ScreenPadded">
+        <item name="android:paddingLeft">@dimen/screen_padding_default</item>
+        <item name="android:paddingRight">@dimen/screen_padding_default</item>
+    </style>
+
+    <style name="MatchParentLayoutWhiteBackGround" parent="MatchParentLayout">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+
+</resources>

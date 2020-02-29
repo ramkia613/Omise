@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary_color">@color/blue</color>
+    <color name="primary_color_dark">@color/blue_dark</color>
+    <color name="accent_color">#5E50BF</color>
+    <color name="alert_color">#D0021B</color>
+    <color name="success_color">#229a49</color>
+
+    <color name="grey_l1">#414141</color>
+    <color name="grey_l2">#D8D8D8</color>
+
+    <color name="blue">#FF0159B9</color>
+    <color name="blue_dark">#FF014B9B</color>
+    <color name="blue_secondary">#FF026DE1</color>
+
+
+    <color name="cell_background">#dddddd</color>
+
+</resources>
