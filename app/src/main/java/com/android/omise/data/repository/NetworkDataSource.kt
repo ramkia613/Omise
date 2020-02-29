@@ -2,6 +2,7 @@ package com.android.omise.data.repository
 
 import com.android.omise.util.Either
 import retrofit2.Call
+import java.net.ConnectException
 import java.net.UnknownHostException
 
 const val READ_TIMEOUT = 60L
@@ -18,6 +19,8 @@ abstract class NetworkDataSource() {
                 false -> Either.Left(processServiceFailure(response.errorBody()))
             }
         } catch (exception: UnknownHostException) {
+            Either.Left(Failure.NetworkConnection())
+        } catch (exception: ConnectException) {
             Either.Left(Failure.NetworkConnection())
         } catch (exception: Exception) {
             Either.Left(

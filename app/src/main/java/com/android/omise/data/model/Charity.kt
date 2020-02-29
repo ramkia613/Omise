@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 data class Charity(
     val id: Int,
     val name: String,
-    @SerializedName("logo_ur")
+    @SerializedName("logo_url")
     val url: String
 ) : Parcelable
 

@@ -17,8 +17,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        //TODO: Add url
-        buildConfigField "String", "BASE_URL", "\"URL\""
+        //TODO: Replace with your server IP or url
+        buildConfigField "String", "BASE_URL", "\"http://192.168.1.104:8080/\""
     }
     buildTypes {
         release {
@@ -70,6 +70,7 @@ dependencies {
     //glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
 
     // test
     kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"

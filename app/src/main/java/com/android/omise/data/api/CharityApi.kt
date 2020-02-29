@@ -5,6 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface CharityApi {
-    @GET("/Charity")
+    @GET("/charities")
     fun getCharities(): Call<List<Charity>>
 }

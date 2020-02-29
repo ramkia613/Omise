@@ -2,4 +2,13 @@
     <string name="app_name">Omise</string>
     <string name="action_settings">Settings</string>
 
+    <string name="generic_loading">Loading...</string>
+    <string name="generic_error_title">Something went wrong</string>
+    <string name="generic_error_message">Something went wrong, please try again</string>
+    <string name="charities">Charities</string>
+    <string name="retry">Retry</string>
+    <string name="ok">Ok</string>
+    <string name="alert_positive">Ok</string>
+    <string name="alert_negative">Cancel</string>
+
 </resources>

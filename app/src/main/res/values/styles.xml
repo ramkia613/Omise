@@ -45,6 +45,10 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+    <style name="MatchContentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
     <style name="MatchParentLayout.ScreenPadded">
         <item name="android:paddingLeft">@dimen/screen_padding_default</item>

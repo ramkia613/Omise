@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <!-- TODO : Add proper url -->
-        <domain includeSubdomains="true">URL</domain>
+        <!-- TODO : Add your url -->
+        <domain includeSubdomains="true">192.168.1.104</domain>
+        <domain includeSubdomains="true">rkdretailiq.com</domain>
+        <domain includeSubdomains="true">adamandlianne.com</domain>
+        <domain includeSubdomains="true">myfreezer.files.wordpress.com</domain>
+        <domain includeSubdomains="true">makhampom.net</domain>
     </domain-config>
+
 </network-security-config>
