@@ -4,6 +4,7 @@
 
     <string name="generic_loading">Loading...</string>
     <string name="generic_error_title">Something went wrong</string>
+    <string name="error_title">Error</string>
     <string name="generic_error_message">Something went wrong, please try again</string>
     <string name="charities">Charities</string>
     <string name="retry">Retry</string>
@@ -17,7 +18,8 @@
     <string name="name_on_card">Name on Card</string>
     <string name="expiration_date">Expiration date</string>
     <string name="security_code">Security code</string>
-    <string name="amount">Amount</string>
+    <string name="amount">Amount in Bhat</string>
     <string name="donate">Pay</string>
+    <string name="invaild_input">InValid Input</string>
 
 </resources>

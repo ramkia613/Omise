@@ -2,14 +2,12 @@ package com.android.omise.donation
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import co.omise.android.models.CardParam
 import com.android.omise.R
 import com.android.omise.data.model.Charity
-import com.android.omise.data.repository.Failure
 import com.android.omise.main.BaseFragment
 import com.android.omise.util.*
 import kotlinx.android.synthetic.main.donation_fragment.*
@@ -31,11 +29,9 @@ class DonationFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         charity = DonationFragmentArgs.fromBundle(arguments!!).charity
-        Log.d("Donation", charity.toString())
         initViewModel()
-
-
         charityImageView.loadImage(this.requireContext(), charity.url)
+
         donate.setOnClickListener {
             val card = CardParam(
                 cardNameEditText.cardName,
@@ -44,12 +40,9 @@ class DonationFragment : BaseFragment() {
                 expiryDateEditText.expiryYear,
                 securityCodeEditText.securityCode
             )
-            Log.d("amount", amountEditText.text.toString())
-            Log.d("amount", "--${amountEditText.text.toString()}--")
-            viewModel.donate(amountEditText.text.toString(), card)
+            creditCardEditText.cardBrand
+            viewModel.donate(amountEditText.text.toString(), card, creditCardEditText.cardBrand)
         }
-
-
     }
 
     override fun setActivityTitle() {
@@ -60,6 +53,13 @@ class DonationFragment : BaseFragment() {
     private fun initViewModel() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(DonationViewModel::class.java)
 
+        viewModel.validationLiveData.observe(viewLifecycleOwner, Observer {
+            it?.let {
+
+                //                showAlert(title = getString(R.string.invaild_input), error = it)
+            }
+        })
+
         viewModel.donateLiveData.observe(viewLifecycleOwner, Observer {
             when (it?.status) {
                 Status.LOADING -> {
@@ -67,22 +67,20 @@ class DonationFragment : BaseFragment() {
                 }
                 Status.LOADED -> {
                     hideLoading()
-
-
                 }
                 Status.FAILED -> {
                     hideLoading()
-                    showAlert(it.exception!!)
+                    showAlert(error = it.exception!!.message)
                 }
             }
         })
     }
 
-    private fun showAlert(failure: Failure) {
-
-        val message = failure.message ?: getString(R.string.generic_error_message)
-        this.requireContext().showAlertDialog(title = failure.getTitle(), message = message) {
-            positiveButton(getString(R.string.ok))
-        }
+    private fun showAlert(title: String = getString(R.string.error_title), error: String?) {
+        val message = error ?: getString(R.string.generic_error_message)
+        this.requireContext()
+            .showAlertDialog(title = title, message = message) {
+                positiveButton(getString(R.string.ok))
+            }
     }
 }

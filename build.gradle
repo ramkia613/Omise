@@ -20,7 +20,7 @@ buildscript {
         daggerVersion = '2.25.2'
         constraintLayoutVersion = '1.1.3'
         cardviewVersion = '1.0.0'
-        retrofitVersion = '2.6.2'
+        retrofitVersion = '2.7.2'
         loggingVersion = '4.2.2'
         kotlinCoroutineVersion = '1.3.1'
         // tools libraries

@@ -10,7 +10,6 @@ import com.android.omise.data.model.Charity
 import com.android.omise.data.repository.Failure
 import com.android.omise.main.BaseFragment
 import com.android.omise.util.Status
-import com.android.omise.util.negativeButton
 import com.android.omise.util.positiveButton
 import com.android.omise.util.showAlertDialog
 import kotlinx.android.synthetic.main.charity_fragment.*
@@ -89,13 +88,12 @@ class CharityFragment : BaseFragment() {
     private fun showAlert(failure: Failure) {
 
         val message = failure.message ?: getString(R.string.generic_error_message)
-        this.requireContext().showAlertDialog(title = failure.getTitle(), message = message) {
-            positiveButton(getString(R.string.retry)) {
-                viewModel.getCharities()
+        this.requireContext()
+            .showAlertDialog(title = getString(R.string.error_title), message = message) {
+                positiveButton(getString(R.string.retry)) {
+                    viewModel.getCharities()
+                }
             }
-            negativeButton {
-            }
-        }
     }
 
 }
