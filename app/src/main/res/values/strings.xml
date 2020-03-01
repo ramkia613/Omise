@@ -22,4 +22,8 @@
     <string name="donate">Pay</string>
     <string name="invaild_input">InValid Input</string>
 
+    <string name="success_message">Donated Successfully to %s!</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="payment_successfull">Payment succeed</string>
+
 </resources>

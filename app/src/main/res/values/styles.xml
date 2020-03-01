@@ -40,11 +40,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Text.Alert.Title">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
 
     <style name="MatchParentLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
     <style name="MatchContentLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -59,5 +64,23 @@
         <item name="android:background">@android:color/white</item>
     </style>
 
+    <style name="DialogFragmentTheme" parent="MatchParentLayout">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Dialog</item>
+    </style>
 
+    <style name="Animation.Dialog" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="DialogFragmentTheme">
+        <item name="android:windowFullscreen">false</item>
+    </style>
 </resources>

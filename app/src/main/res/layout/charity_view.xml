@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchContentLayout"
     android:layout_margin="@dimen/xx_small_text"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="@dimen/margin_default"
     app:cardElevation="@dimen/xx_small_text">
 
     <androidx.constraintlayout.widget.ConstraintLayout

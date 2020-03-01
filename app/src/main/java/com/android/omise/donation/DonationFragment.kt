@@ -40,7 +40,9 @@ class DonationFragment : BaseFragment() {
                 expiryDateEditText.expiryYear,
                 securityCodeEditText.securityCode
             )
-            creditCardEditText.cardBrand
+            
+            /*SuccessFragment.newInstance(charity)
+                .show(activity?.supportFragmentManager!!, SuccessFragment::class.java.name)*/
             viewModel.donate(amountEditText.text.toString(), card, creditCardEditText.cardBrand)
         }
     }
@@ -53,6 +55,7 @@ class DonationFragment : BaseFragment() {
     private fun initViewModel() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(DonationViewModel::class.java)
 
+        //TODO: Needs to optimise it
         viewModel.validationLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
 
@@ -67,6 +70,8 @@ class DonationFragment : BaseFragment() {
                 }
                 Status.LOADED -> {
                     hideLoading()
+                    SuccessFragment.newInstance(charity)
+                        .show(activity?.supportFragmentManager!!, SuccessFragment::class.java.name)
                 }
                 Status.FAILED -> {
                     hideLoading()

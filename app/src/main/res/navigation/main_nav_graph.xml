@@ -20,5 +20,17 @@
         <argument
             android:name="charity"
             app:argType="com.android.omise.data.model.Charity" />
+        <action
+            android:id="@+id/action_donationDest_to_successDest"
+            app:destination="@id/successDest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successDest"
+        android:name="com.android.omise.donation.SuccessFragment">
+
+        <argument
+            android:name="charity"
+            app:argType="com.android.omise.data.model.Charity" />
     </fragment>
 </navigation>

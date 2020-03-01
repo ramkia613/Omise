@@ -10,6 +10,7 @@ import com.android.omise.data.model.Charity
 import com.android.omise.data.repository.Failure
 import com.android.omise.main.BaseFragment
 import com.android.omise.util.Status
+import com.android.omise.util.navigateWithAnim
 import com.android.omise.util.positiveButton
 import com.android.omise.util.showAlertDialog
 import kotlinx.android.synthetic.main.charity_fragment.*
@@ -43,7 +44,7 @@ class CharityFragment : BaseFragment() {
         charityAdapter = CharityAdapter(charities)
         charityRecyclerView.adapter = charityAdapter
         charityAdapter.selectCharity = {
-            findNavController().navigate(
+            findNavController().navigateWithAnim(
                 CharityFragmentDirections.actionCharityDestToDonationDest(
                     it
                 )
