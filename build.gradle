@@ -32,6 +32,8 @@ buildscript {
         androidxTestVersion = '1.0.0'
         junitVersion = '4.12'
         mockitoKotlinVersion = '2.1.0'
+        espressoVersion = '3.2.0'
+        testVersion = '1.1.1'
 
         omiseVersion = '3.0.0'
         stethoCryptoVersion = '1.1'

@@ -16,8 +16,7 @@
 
         <activity
             android:name="com.android.omise.main.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize|stateHidden">
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
