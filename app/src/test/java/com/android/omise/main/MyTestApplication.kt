@@ -19,4 +19,8 @@ open class MyTestApplication : MyApplication() {
         component = DaggerAndroidAppComponent.factory().create(this) as AndroidAppComponent
         return component
     }
+
+    override fun initPlugins() {
+        // not initialising any plugin for test
+    }
 }

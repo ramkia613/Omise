@@ -11,7 +11,7 @@ string get_omise_public_key() {
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_android_omise_main_MainActivity_getPublicKey(JNIEnv *env, jobject object) {
+Java_com_android_omise_main_MyApplication_getPublicKey(JNIEnv *env, jobject object) {
     std::string token = get_omise_public_key();
     return env->NewStringUTF(token.c_str());
 }

@@ -17,10 +17,10 @@ import kotlinx.android.synthetic.main.charity_fragment.*
 
 class CharityFragment : BaseFragment() {
 
-    private lateinit var viewModel: CharityViewModel
+    lateinit var viewModel: CharityViewModel
 
     private var charities: MutableList<Charity> = mutableListOf()
-    private lateinit var charityAdapter: CharityAdapter
+    lateinit var charityAdapter: CharityAdapter
 
 
     override fun getLayoutResourceId(): Int = R.layout.charity_fragment
