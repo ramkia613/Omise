@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.android.omise.R
 import com.android.omise.data.model.Charity
 import com.android.omise.data.repository.Failure
@@ -43,7 +44,11 @@ class CharityFragment : BaseFragment() {
         charityAdapter = CharityAdapter(charities)
         charityRecyclerView.adapter = charityAdapter
         charityAdapter.selectCharity = {
-            //findNavController().navigate()
+            findNavController().navigate(
+                CharityFragmentDirections.actionCharityDestToDonationDest(
+                    it
+                )
+            )
         }
     }
 
@@ -76,7 +81,6 @@ class CharityFragment : BaseFragment() {
                     hideLoading()
                     updateList(null)
                     showAlert(it.exception!!)
-
                 }
             }
         })

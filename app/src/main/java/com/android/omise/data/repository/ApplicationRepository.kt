@@ -1,6 +1,7 @@
 package com.android.omise.data.repository
 
 import com.android.omise.data.model.Charity
+import com.android.omise.data.model.Donation
 import com.android.omise.util.Either
 import javax.inject.Inject
 
@@ -20,6 +21,10 @@ class ApplicationRepository @Inject constructor(
      */
     fun getCharity(useCache: Boolean = false): Either<Failure, List<Charity>?> {
         return networkDataSource.getCharities()
+    }
+
+    fun donate(donation: Donation): Either<Failure, Any?> {
+        return networkDataSource.donate(donation)
     }
 
 }

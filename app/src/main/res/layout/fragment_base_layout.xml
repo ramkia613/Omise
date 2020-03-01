@@ -14,8 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/progressBarView"
         style="@style/MatchParentLayout"
-        android:background="#99000000"
+        android:background="@color/transparent"
         android:clickable="false"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

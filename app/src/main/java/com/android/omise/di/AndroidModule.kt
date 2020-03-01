@@ -1,6 +1,7 @@
 package com.android.omise.di
 
 import com.android.omise.charity.CharityFragment
+import com.android.omise.donation.DonationFragment
 import com.android.omise.main.MainActivity
 import com.android.omise.main.SplashActivity
 import dagger.Module
@@ -17,4 +18,7 @@ internal abstract class AndroidModule {
 
     @ContributesAndroidInjector
     internal abstract fun bindCharityFragment(): CharityFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun bindDonationFragment(): DonationFragment
 }

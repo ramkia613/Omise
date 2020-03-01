@@ -18,5 +18,6 @@
 
 
     <color name="cell_background">#dddddd</color>
+    <color name="transparent">#99000000</color>
 
 </resources>

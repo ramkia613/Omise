@@ -6,5 +6,19 @@
 
     <fragment
         android:id="@+id/charityDest"
-        android:name="com.android.omise.charity.CharityFragment" />
+        android:name="com.android.omise.charity.CharityFragment">
+
+        <action
+            android:id="@+id/action_charityDest_to_donationDest"
+            app:destination="@id/donationDest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/donationDest"
+        android:name="com.android.omise.donation.DonationFragment">
+
+        <argument
+            android:name="charity"
+            app:argType="com.android.omise.data.model.Charity" />
+    </fragment>
 </navigation>
