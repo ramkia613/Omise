@@ -2,11 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
 
 androidExtensions {
     experimental = true
 }
 android {
+
     compileSdkVersion compileSdkVer
 
     defaultConfig {
@@ -26,6 +28,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    ndkVersion = '21.0.6113669'
+
 }
 
 dependencies {
@@ -33,15 +48,16 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation 'com.google.android.material:material:1.1.0'
-
     //app
-    implementation("androidx.recyclerview:recyclerview:$recyclerViewVersion")
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.cardview:cardview:$cardviewVersion"
 
+    implementation 'androidx.preference:preference:1.0.0'
+    implementation "com.therahulmeena.kryptoscope:kryptoscope:$stethoCryptoVersion"
+
     // arch components
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$archCompVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archCompVersion"
 
@@ -59,6 +75,7 @@ dependencies {
     //dagger
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
@@ -71,6 +88,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
+    implementation "co.omise:omise-android:$omiseVersion"
 
     // test
     kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
@@ -78,8 +96,10 @@ dependencies {
 
     // test
     testImplementation "junit:junit:$junitVersion"
-    testImplementation "org.robolectric:robolectric:$robolectricVersion"
-    testImplementation "org.robolectric:shadows-supportv4:$robolectricVersion"
+    testImplementation("org.robolectric:robolectric:$robolectricVersion") {
+        exclude module: 'support-v4'
+        exclude group: 'junit'
+    }
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
 }

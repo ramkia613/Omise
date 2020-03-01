@@ -32,15 +32,18 @@ buildscript {
         androidxTestVersion = '1.0.0'
         junitVersion = '4.12'
         mockitoKotlinVersion = '2.1.0'
+
+        omiseVersion = '3.0.0'
+        stethoCryptoVersion = '1.1'
     }
     repositories {
         google()
         jcenter()
-
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navCompVersion"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

@@ -10,5 +10,14 @@
     <string name="ok">Ok</string>
     <string name="alert_positive">Ok</string>
     <string name="alert_negative">Cancel</string>
+    <string name="donation">Donation</string>
+    <string name="certificate">"CN=%s CA Certificate"</string>
+    <string name="name">Name</string>
+    <string name="credit_card_number">Card Number</string>
+    <string name="name_on_card">Name on Card</string>
+    <string name="expiration_date">Expiration date</string>
+    <string name="security_code">Security code</string>
+    <string name="amount">Amount</string>
+    <string name="donate">Pay</string>
 
 </resources>

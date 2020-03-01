@@ -1,8 +1,10 @@
 package com.android.omise.util
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -10,6 +12,9 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import com.android.omise.R
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 
 
 fun View.hide() {
@@ -102,4 +107,49 @@ fun AlertDialog.Builder.negativeButton(
     handleClick: (which: Int) -> Unit = {}
 ) {
     this.setNegativeButton(text) { _, which -> handleClick(which) }
+}
+
+inline fun <reified T> SharedPreferences.set(key: String, value: T) {
+    val editor = edit()
+    when (T::class) {
+        Boolean::class -> editor.putBoolean(key, value as Boolean)
+        Float::class -> editor.putFloat(key, value as Float)
+        Int::class -> editor.putInt(key, value as Int)
+        Long::class -> editor.putLong(key, value as Long)
+        String::class -> editor.putString(key, value as String)
+        else -> throw IllegalArgumentException("This type can't be stored in shared preferences")
+    }
+    editor.apply()
+}
+
+fun SharedPreferences.commit() = edit().commit()
+
+fun SharedPreferences.getDecryptedString(
+    key: String,
+    def: String?,
+    encryptionUtil: EncryptionUtil
+): String {
+    return encryptionUtil.decrypt(this.getString(key, def) ?: "")
+}
+
+fun SharedPreferences.setEncryptedString(
+    key: String,
+    value: String,
+    encryptionUtil: EncryptionUtil
+) {
+    this.set(key, encryptionUtil.encrypt(value))
+}
+
+fun Context.requestOptions(): RequestOptions {
+    return RequestOptions()
+        .error(R.drawable.ic_default_image)
+        .placeholder(R.drawable.ic_default_image)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+}
+
+fun ImageView.loadImage(context: Context, url: String) {
+    Glide.with(this)
+        .applyDefaultRequestOptions(context.requestOptions())
+        .load(url)
+        .into(this)
 }
